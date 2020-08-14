@@ -50,12 +50,24 @@ export default class CreatePage extends Component {
                 <h2>CREATE!</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        Strings: 
-                        <input onChange={this.handleStringChange} type="number" value={this.state.strings} />
+                        Name:
+                        <input onChange={this.handleNameChange} type="number" value={this.state.name} />
                     </label>
                     <label>
-                        Color: 
-                        <input onChange={this.handleColorChange} value={this.state.color} />
+                        Age:
+                        <input onChange={this.handleAgeChange} value={this.state.age} />
+                    </label>
+                    <label>
+                        Injured:
+                        <input onChange={this.handleAgeChange} value={this.state.injured} />
+                    </label>
+                    <label>
+                        <select value={this.state.position} onChange={this.handlePositionChange}>
+                            <option value='keeper'>Keeper</option>
+                            <option value='defender'>Defender</option>
+                            <option value='midfielder'>Midfielder</option>
+                            <option value='attacker'>Attacker</option>
+                        </select>
                     </label>
                     <button>Make Soccer Player</button>
                 </form>
