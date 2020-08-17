@@ -31,5 +31,8 @@ export function updatePlayer(id, updatedPlayer) {
 }
 
 export function createPlayer(playerData) {
-    return request.post(`${URL}/players?`, playerData)
+    const link = `${URL}/players?${playerData}`;
+    console.log(link);
+
+    return request.post(link);
 }

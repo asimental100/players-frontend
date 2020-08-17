@@ -23,12 +23,9 @@ export default class CreatePage extends Component {
         e.preventDefault();
 
         try {
-            await createPlayer({
-              name: this.state.name,
-              age: this.state.age,
-              injured: this.state.injured,
-              position_id: this.state.position_id
-            });
+            await createPlayer(
+              `name=${this.state.name}&age=${this.state.age}&injured=${this.state.injured}&position_id=${this.state.position_id}`
+            );
     
             this.setState({
               name: 'Enter Name Here',
@@ -42,7 +39,7 @@ export default class CreatePage extends Component {
         } catch(e) {
             console.log(e.message)
 
-            console.log(this.state);
+            console.log(this.state.name);
         }
     }
 
