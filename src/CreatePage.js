@@ -31,7 +31,7 @@ export default class CreatePage extends Component {
             });
     
             this.setState({
-              name: '',
+              name: 'Pele',
               age: 79,
               injured: true,
               position_id: 4
@@ -74,7 +74,10 @@ export default class CreatePage extends Component {
                     </label>
                     <label>
                         Injured: 
-                        <input onChange={this.handleInjuredChange} value={this.state.injured} />
+                        <select onChange={this.handleInjuredChange} value={this.state.injured} >
+                            <option value={true}>True</option>
+                            <option value={false}>False</option>
+                        </select>
                     </label>
                     <label>
                         Position:
