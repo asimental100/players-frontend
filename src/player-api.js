@@ -27,7 +27,10 @@ export function deletePlayer(id) {
 }
 
 export function updatePlayer(id, updatedPlayer) {
-    return request.put(`${URL}/players/${id}?`, updatedPlayer);
+    const link = `${URL}/players/${id}?${updatedPlayer}`;
+    console.log(link);
+    
+    return request.put(link);
 }
 
 export function createPlayer(playerData) {

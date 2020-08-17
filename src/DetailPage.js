@@ -33,13 +33,7 @@ export default class DetailPage extends Component {
 
         try {
              await updatePlayer(
-                this.props.match.params.id, 
-                {
-                    name: this.state.name,
-                    age: this.state.age,
-                    injured: this.state.injured,
-                    position_id: this.state.position_id,
-                });
+                this.props.match.params.id, `name=${this.state.name}&age=${this.state.age}&injured=${this.state.injured}&position_id=${this.state.position_id}`);
 
             const updatedPlayer = await fetchPlayer(this.props.match.params.id)
     
@@ -51,6 +45,7 @@ export default class DetailPage extends Component {
               player: updatedPlayer.body,
             });
 
+            this.props.history.push('/');
 
         } catch(e) {
             console.log(e.message)
