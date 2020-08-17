@@ -83,10 +83,10 @@ export default class DetailPage extends Component {
         return (
             <div>
                 <div>
-               Here is your new {this.state.player.position_name}: Their name is {this.state.player.name} and they are {this.state.player.age} years old!
+               Here is your selected player! Their name is {this.state.player.name} and they play as a {this.state.player.position_name}. They are {this.state.player.age} years old and they are currently {this.state.player.injured ? 'Injured' : 'Fully Fit'}.
                 </div>
 
-        <h3>Update Your Created Player?</h3>
+        <h3>Update The Player?</h3>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Name: 
@@ -98,7 +98,10 @@ export default class DetailPage extends Component {
                     </label>
                     <label>
                         Injured: 
-                        <input onChange={this.handleInjuredChange} value={this.state.injured} />
+                        <select onChange={this.handleInjuredChange} value={this.state.injured} >
+                            <option value={true}>True</option>
+                            <option value={false}>False</option>
+                        </select>
                     </label>
                     <label>
                         Position:
@@ -110,7 +113,7 @@ export default class DetailPage extends Component {
                     </label>
                     <button>Update Player</button>
                 </form>
-               <button style={{ background: 'crimson'}} onClick={this.handleDelete}>Delete</button>
+               <button onClick={this.handleDelete}>Delete</button>
             </div>
         )
     }
