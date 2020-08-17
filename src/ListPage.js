@@ -31,7 +31,7 @@ class ListPage extends React.Component {
           }
       </div>
     )
-}
+  }
 }
 
 export default ListPage;
