@@ -85,7 +85,7 @@ export default class DetailPage extends Component {
                Here is your selected player! Their name is {this.state.player.name} and they play as a {this.state.player.position_name}. They are {this.state.player.age} years old and they are currently {this.state.player.injured ? 'Injured' : 'Fully Fit'}.
                 </div>
 
-        <h3>Update The Player?</h3>
+        <h3>Update/Delete The Player?</h3>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Name: 

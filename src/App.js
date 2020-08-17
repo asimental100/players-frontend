@@ -9,12 +9,17 @@ export default class App extends Component {
     render() {
         return (
             <div className="App">
-            <header className="App-header">    
+            <header className="App-header">
+            <h1>Welcome to A Full Stack Player Selection Page</h1>
                 <Router>
                     <main>
                         <div className="sidebar">
-                        <Link to='/create'>Create</Link>
-                        <Link to='/'>List</Link>
+                            <div className='createDiv'>
+                            <Link to='/create'>Create Player</Link>
+                            </div>
+                            <div className='listDiv'>
+                            <Link to='/'>Main List</Link>
+                            </div>
                         </div>
                         <div className="content">
                         <Switch>
