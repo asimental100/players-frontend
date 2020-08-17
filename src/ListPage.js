@@ -28,7 +28,7 @@ class ListPage extends React.Component {
               return <Link className="player" to={`/detail/${player.id}`} key={`${player.id}-${player.name}`}>
                 <p>Name: {player.name}</p>
                 <p>Age: {player.age}</p>
-                <p>Injured: {player.injured}</p>
+                <p>Injured: {player.injured ? 'True' : 'False'}</p>
                 <p>Position: {player.position_name}</p>
               </Link>
             })
