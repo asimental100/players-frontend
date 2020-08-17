@@ -8,7 +8,7 @@ export default class CreatePage extends Component {
         age: 79,
         injured: false,
         position_id: 4,
-        positions: [],
+        positions: []
     }
 
     componentDidMount = async () => {
@@ -27,14 +27,14 @@ export default class CreatePage extends Component {
               name: this.state.name,
               age: this.state.age,
               injured: this.state.injured,
-              position_id: this.state.position_id,
+              position_id: this.state.position_id
             });
     
             this.setState({
-              name: 'Pele',
-              age: 79,
-              injured: true,
-              position_id: 4
+              name: 'Enter Name Here',
+              age: 20,
+              injured: false,
+              position_id: 1
             });
 
         } catch(e) {
