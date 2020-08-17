@@ -19,7 +19,10 @@ export function fetchPositions() {
 }
 
 export function fetchPlayer(id) {
-    return request.get(`${URL}/players/${id}`);
+    const link = `${URL}/players/${id}`;
+    console.log(link);
+
+    return request.get(link);
 }
 
 export function deletePlayer(id) {
