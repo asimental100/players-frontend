@@ -10,7 +10,6 @@ export function fetchPlayers() {
     }
 }
 
-
 export function fetchPositions() {
     try{
         return request.get(`${URL}/positions`);

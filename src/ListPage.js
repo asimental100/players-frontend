@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import { fetchPlayers, fetchPlayer } from './player-api.js';
+import { fetchPlayers } from './player-api.js';
 import { Link } from 'react-router-dom';
 
 class ListPage extends React.Component {
