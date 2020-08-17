@@ -14,10 +14,6 @@ class ListPage extends React.Component {
     this.setState({
       players: data.body
     })
-
-    console.log('=============================\n')
-    console.log('|| data.body', data.body)
-    console.log('\n=============================')
   }
 
   render() {
