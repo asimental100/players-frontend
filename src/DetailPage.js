@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchPlayer, deletePlayer, updatePlayer, fetchPositions } from './player-api.js';
+import './App.css';
 
 export default class DetailPage extends Component {
     state = {
