@@ -14,6 +14,8 @@ export default class DetailPage extends Component {
 
     componentDidMount = async () => {
         const data = await fetchPlayer(this.props.match.params.id)
+        console.log(this.props.match.params.id);
+        console.log(data);
         const positionsData = await fetchPositions();
 
         const matchingPosition = positionsData.body.find(position => position.name = data.body.position_name);
