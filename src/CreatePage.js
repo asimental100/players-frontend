@@ -1,31 +1,45 @@
-import React, { Component } from 'react'
-import { createPlayer } from './player-api.js';
+import React, { Component } from 'react';
+import { createPlayer, fetchPositions } from './player-api.js';
 import './App.css';
 
 export default class CreatePage extends Component {
     state = {
-        name: 'Ronaldo',
-        age: 25,
+        name: 'Pele',
+        age: 79,
         injured: false,
-        position: 'attacker'
+        position_id: 4,
+        positions: [],
+    }
+
+    componentDidMount = async () => {
+        const positionsData = await fetchPositions();
+
+        this.setState({
+            positions: positionsData.body
+        })
     }
 
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        await createPlayer({
-          name: this.state.name,
-          age: this.state.age,
-          injured: this.state.injured,
-          position: this.state.position
-        });
+        try {
+            await createPlayer({
+              name: this.state.name,
+              age: this.state.age,
+              injured: this.state.injured,
+              position_id: this.state.position_id,
+            });
+    
+            this.setState({
+              name: '',
+              age: 79,
+              injured: true,
+              position_id: 4
+            });
 
-        this.setState({
-          name: '',
-          age: 1,
-          injured: false,
-          position: ''
-        })
+        } catch(e) {
+            console.log(e.message)
+        }
     }
 
     handleNameChange = e => {
@@ -38,10 +52,11 @@ export default class CreatePage extends Component {
 
     handleInjuredChange = e => {
         this.setState({ injured: e.target.value });
+    
     }
 
     handlePositionChange = e => {
-        this.setState({ position: e.target.value });
+        this.setState({ position_id: e.target.value });
     }
 
     render() {
@@ -50,26 +65,26 @@ export default class CreatePage extends Component {
                 <h2>CREATE!</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        Name:
-                        <input onChange={this.handleNameChange} type="number" value={this.state.name} />
+                        Name: 
+                        <input onChange={this.handleNameChange} value={this.state.name} />
                     </label>
                     <label>
-                        Age:
-                        <input onChange={this.handleAgeChange} value={this.state.age} />
+                        Age: 
+                        <input onChange={this.handleAgeChange} type="number" value={this.state.age} />
                     </label>
                     <label>
-                        Injured:
-                        <input onChange={this.handleAgeChange} value={this.state.injured} />
+                        Injured: 
+                        <input onChange={this.handleInjuredChange} value={this.state.injured} />
                     </label>
                     <label>
-                        <select value={this.state.position} onChange={this.handlePositionChange}>
-                            <option value='keeper'>Keeper</option>
-                            <option value='defender'>Defender</option>
-                            <option value='midfielder'>Midfielder</option>
-                            <option value='attacker'>Attacker</option>
+                        Position:
+                        <select onChange={this.handlePositionChange} value={this.state.position_id}>
+                            {
+                                this.state.positions.map((position) => <option value={position.id}>{position.name}</option>)
+                            }
                         </select>
                     </label>
-                    <button>Make Soccer Player</button>
+                    <button>Make New Soccer Player</button>
                 </form>
             </div>
         )

@@ -1,11 +1,11 @@
 /* eslint-disable */
 import React from 'react';
-import { fetchPlayers } from './player-api.js';
+import { fetchPlayers, fetchPlayer } from './player-api.js';
 import { Link } from 'react-router-dom';
 
 class ListPage extends React.Component {
   state = {
-    players: [] 
+    players: []
   }
 
   componentDidMount = async () => {
@@ -14,18 +14,22 @@ class ListPage extends React.Component {
     this.setState({
       players: data.body
     })
+
+    console.log('=============================\n')
+    console.log('|| data.body', data.body)
+    console.log('\n=============================')
   }
 
   render() {
     return (
-      <div className="player">
+      <div className="players">
           {
             this.state.players.map((player) => {
               return <Link className="player" to={`/detail/${player.id}`} key={`${player.id}-${player.name}`}>
                 <p>Name: {player.name}</p>
                 <p>Age: {player.age}</p>
                 <p>Injured: {player.injured}</p>
-                <p>Position: {player.position}</p>
+                <p>Position: {player.position_name}</p>
               </Link>
             })
           }
