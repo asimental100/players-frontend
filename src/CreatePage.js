@@ -37,8 +37,12 @@ export default class CreatePage extends Component {
               position_id: 1
             });
 
+            this.props.history.push('/');
+
         } catch(e) {
             console.log(e.message)
+
+            console.log(this.state);
         }
     }
 
