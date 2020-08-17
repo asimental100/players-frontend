@@ -49,7 +49,7 @@ export default class DetailPage extends Component {
               player: updatedPlayer.body,
             });
 
-            this.props.history.push('/');
+            window.location.reload(true);
 
         } catch(e) {
             console.log(e.message)
